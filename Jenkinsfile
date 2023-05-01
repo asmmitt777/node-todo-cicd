@@ -22,7 +22,7 @@ pipeline {
         }
         stage('deploy'){
             steps{
-               sh 'docker-compose down && docker-compose up -d'
+               sh 'docker-compose down && docker-compose build --force-rm --no-cache && docker-compose up -d'
             }
         }
       
