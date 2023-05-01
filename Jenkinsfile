@@ -9,14 +9,14 @@ pipeline {
         }
         stage('build and test') {
             steps {
-                sh 'docker build . -t docker9asmit/node-todo-cicd:latest'
+                sh 'docker build . -t docker9asmit/node-todo-app:latest'
         }
       }
         stage('login and push'){
             steps{
                 withCredentials([usernamePassword(credentialsId:'dockerHub',passwordVariable:'dockerHubPassword', usernameVariable:'dockerHubUser')]) {
                     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                    sh "docker push docker9asmit/node-todo-cicd:latest"
+                    sh "docker push docker9asmit/node-todo-app:latest"
             }
           }
         }
