@@ -1,7 +1,7 @@
-version: '3.9'
+version: '3'
 
 services:
   web:
-    image: trainwithshubham/node-todo-app-cicd:latest
+    image: docker9asmit/node-todo-app-cicd:latest
     ports:
       - "8000:8000"
